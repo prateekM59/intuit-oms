@@ -5,13 +5,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
  * Created by: pramahajan on 11/11/20 4:09 AM GMT+05:30
  */
+@SuppressWarnings("JpaDataSourceORMInspection")
 @Entity
 @Table(name="orders")
 public class Order {
@@ -27,7 +27,7 @@ public class Order {
     @NotNull
     private Integer userId;
     @NotNull
-    private Integer price;
+    private Float price;
     @NotNull
     private String email;
     @NotNull
@@ -75,11 +75,11 @@ public class Order {
         this.userId = userId;
     }
 
-    public Integer getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 
