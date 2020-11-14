@@ -1,4 +1,4 @@
-package mahajan.prateek.intuit.oms.api.model;
+package mahajan.prateek.intuit.oms.api.model.user;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import mahajan.prateek.intuit.oms.repository.model.UsersType;
@@ -9,17 +9,17 @@ import javax.validation.constraints.NotNull;
  * Created by: pramahajan on 11/13/20 2:57 AM GMT+05:30
  */
 @JsonDeserialize(builder = UpsertUserRequest.Builder.class)
-public class UpsertUserRequest {
+public final class UpsertUserRequest {
     @NotNull
-    private String name;
+    private final String name;
     @NotNull
-    private String email;
+    private final String email;
     @NotNull
-    private String phone;
+    private final String phone;
     @NotNull
-    private String address;
+    private final String address;
     @NotNull
-    private UsersType type;
+    private final UsersType type;
 
     public String getName() {
         return name;
@@ -47,9 +47,6 @@ public class UpsertUserRequest {
         this.phone = builder.phone;
         this.address = builder.address;
         this.type = Enum.valueOf(UsersType.class, builder.type);
-    }
-
-    private UpsertUserRequest() {
     }
 
     public static Builder builder() {

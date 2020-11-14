@@ -1,12 +1,18 @@
 package mahajan.prateek.intuit.oms.repository.model;
 
+import org.hibernate.annotations.Type;
+import org.hibernate.type.StringType;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.sql.Timestamp;
 
 /**
  * Created by: pramahajan on 11/11/20 4:09 AM GMT+05:30
@@ -19,8 +25,9 @@ public class Order {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
     @NotNull
-    private Date date;
+    private Timestamp date;
     @NotNull
+    @Enumerated(EnumType.STRING)
     private Product product;
     @NotNull
     private Integer quantity;
@@ -43,11 +50,11 @@ public class Order {
         this.id = id;
     }
 
-    public Date getDate() {
+    public Timestamp getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Timestamp date) {
         this.date = date;
     }
 

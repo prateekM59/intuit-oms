@@ -1,6 +1,10 @@
 package mahajan.prateek.intuit.oms.repository.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,7 +30,11 @@ public class User {
     @NotNull
     private String address;
     @NotNull
+    @Enumerated(EnumType.STRING)
     private UsersType type;
+
+    public User() {
+    }
 
     public User(@NotNull String name, @NotNull String email, @NotNull String phone, @NotNull String address, @NotNull UsersType type) {
         this.name = name;
@@ -84,6 +92,7 @@ public class User {
         this.type = type;
     }
 
+    @JsonIgnore
     public boolean isAdmin() {
         return this.type == UsersType.ADMIN;
     }
