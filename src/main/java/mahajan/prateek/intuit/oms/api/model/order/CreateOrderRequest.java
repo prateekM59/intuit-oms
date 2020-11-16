@@ -1,7 +1,6 @@
 package mahajan.prateek.intuit.oms.api.model.order;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import mahajan.prateek.intuit.oms.repository.model.Product;
 
 import javax.validation.constraints.NotNull;
 
@@ -12,7 +11,7 @@ import javax.validation.constraints.NotNull;
 @JsonDeserialize(builder = CreateOrderRequest.Builder.class)
 public final class CreateOrderRequest {
     @NotNull
-    private final Product product;
+    private final String product;
     @NotNull
     private final Integer quantity;
     @NotNull
@@ -21,7 +20,13 @@ public final class CreateOrderRequest {
     private final String phone;
     private final String address;
 
-    public Product getProduct() {
+    @Override
+    public String toString() {
+        return "CreateOrderRequest{" + "product='" + product + '\'' + ", quantity=" + quantity + ", userId=" + userId + ", email='" + email + '\''
+                + ", phone='" + phone + '\'' + ", address='" + address + '\'' + '}';
+    }
+
+    public String getProduct() {
         return product;
     }
 
@@ -46,7 +51,7 @@ public final class CreateOrderRequest {
     }
 
     private CreateOrderRequest(Builder builder) {
-        this.product = Enum.valueOf(Product.class, builder.product);
+        this.product = builder.product;
         this.quantity = builder.quantity;
         this.userId = builder.userId;
         this.email = builder.email;

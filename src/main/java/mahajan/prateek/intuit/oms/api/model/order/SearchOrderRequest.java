@@ -10,6 +10,12 @@ public final class SearchOrderRequest {
     private final String email;
     private final String phone;
 
+    @Override
+    public String toString() {
+        return "SearchOrderRequest{" + "dateSearchType=" + dateSearchType + ", product='" + product + '\'' + ", userId=" + userId + ", email='"
+                + email + '\'' + ", phone='" + phone + '\'' + '}';
+    }
+
     public DateSearchType getDateSearchType() {
         return dateSearchType;
     }

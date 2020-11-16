@@ -18,8 +18,13 @@ public final class UpsertUserRequest {
     private final String phone;
     @NotNull
     private final String address;
-    @NotNull
     private final UsersType type;
+
+    @Override
+    public String toString() {
+        return "UpsertUserRequest{" + "name='" + name + '\'' + ", email='" + email + '\'' + ", phone='" + phone + '\'' + ", address='" + address
+                + '\'' + ", type=" + type + '}';
+    }
 
     public String getName() {
         return name;
@@ -46,7 +51,7 @@ public final class UpsertUserRequest {
         this.email = builder.email;
         this.phone = builder.phone;
         this.address = builder.address;
-        this.type = Enum.valueOf(UsersType.class, builder.type);
+        this.type = builder.type == null ? UsersType.NORMAL : Enum.valueOf(UsersType.class, builder.type);
     }
 
     public static Builder builder() {

@@ -2,6 +2,7 @@ package mahajan.prateek.intuit.oms.repository.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -24,6 +25,7 @@ public class User {
     @NotNull
     private String name;
     @NotNull
+    @Column(unique=true)
     private String email;
     @NotNull
     private String phone;

@@ -1,12 +1,6 @@
 package mahajan.prateek.intuit.oms.repository.model;
 
-import org.hibernate.annotations.Type;
-import org.hibernate.type.StringType;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,8 +21,7 @@ public class Order {
     @NotNull
     private Timestamp date;
     @NotNull
-    @Enumerated(EnumType.STRING)
-    private Product product;
+    private String product;
     @NotNull
     private Integer quantity;
     @NotNull
@@ -58,11 +51,11 @@ public class Order {
         this.date = date;
     }
 
-    public Product getProduct() {
+    public String getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public void setProduct(String product) {
         this.product = product;
     }
 
